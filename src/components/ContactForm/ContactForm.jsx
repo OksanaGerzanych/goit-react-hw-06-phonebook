@@ -12,14 +12,12 @@ import {
   FormButton,
 } from 'components/ContactForm/ContactForm.styled';
 
-//
-
 export const ContactForm = () => {
   const contacts = useSelector(getContacts);
   const dispatch = useDispatch();
 
   const handleSubmit = event => {
-    console.log(event.target.name.value);
+    console.log(event.name);
     const valueName = event.target.name.value;
     const existstName = contacts.find(contact => contact.name === valueName);
 
