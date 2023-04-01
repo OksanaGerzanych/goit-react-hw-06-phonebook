@@ -17,7 +17,6 @@ export const ContactForm = () => {
   const dispatch = useDispatch();
 
   const handleSubmit = event => {
-    console.log(event.name);
     const valueName = event.target.name.value;
     const existstName = contacts.find(contact => contact.name === valueName);
 
@@ -25,6 +24,7 @@ export const ContactForm = () => {
       return Notify.info(`This name is already in contacts!`);
     }
     dispatch(addContact(event.target.name.value));
+    
   };
   return (
     <div>
