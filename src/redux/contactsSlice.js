@@ -11,12 +11,12 @@ import contactsInitialState from '../contacts';
       reducer(state, action) {
         state.push(action.payload);
       },
-      prepare(contact) {
+      prepare(name, number) {
         return {
           payload: {
-            ...contact,
             id: nanoid(),
-            
+            name,
+            number,
           },
         };
       },
