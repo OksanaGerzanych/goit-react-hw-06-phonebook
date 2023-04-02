@@ -16,14 +16,17 @@ export const ContactForm = () => {
   const contacts = useSelector(getContacts);
   const dispatch = useDispatch();
 
-  const handleSubmit = event => {
+  const handleSubmit = (event) => {
+    event.preventDefault();
+
     const valueName = event.target.name.value;
     const existstName = contacts.find(contact => contact.name === valueName);
-
+   
     if (existstName) {
       return Notify.info(`This name is already in contacts!`);
     }
-    dispatch(addContact(event.target.name.value));
+
+    dispatch(addContact(event.target.name.value, event.target.number.value));
     
   };
   return (
